@@ -8,7 +8,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader', 'eslint-loader']
       }
     ]
   },
@@ -24,8 +24,8 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin();
-  ]
+    new webpack.HotModuleReplacementPlugin()
+  ],
 
   devServer: {
     contentBase: './dist',
