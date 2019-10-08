@@ -1,7 +1,14 @@
 import React from 'react';
 import './assets/styles/app.scss';
+import Routes from './routes';
 
 // eslint-disable-next-line react/prop-types
-const App = ({title}) => <div className="my-div">{title}</div>;
+const App = () => {
+  return (
+    <div className="app">
+      <Routes />
+    </div>
+  );
+};
 
 export default App;
