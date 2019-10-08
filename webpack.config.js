@@ -7,8 +7,18 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader']
+        options: {
+          emitWarning: true,
+          configFile: './.eslintrc.json'
+        }
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
       }
     ]
   },
@@ -23,12 +33,10 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 
   devServer: {
     contentBase: './dist',
     hot: true
   }
-}
+};
