@@ -1,0 +1,64 @@
+.login {
+  background-image: linear-gradient(to right, #FFFFFF00 0%, #0D2403 100%),url(../images/taka.png);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  padding-top: 10%;
+
+  &__brief {
+    padding-top: 20%;
+    padding-left: 15%;
+    letter-spacing: 2px;
+    h3 {
+      font-size: 75px;
+      -webkit-text-stroke: 5px;
+      margin: 0 auto;
+    }
+  }
+
+  &__form {
+    display: grid;
+    padding-left: 45%;
+    &__heading {
+      -webkit-text-stroke: 7px;
+      letter-spacing: 6px;
+      h3 {
+        font-size: 75px;
+        margin: 35px auto;
+      }
+      span {
+        color: #B3F548;
+      }
+    }
+    &__resetpw, &__linksignup {
+      display: flex;
+      justify-content: center;
+      font-size: 13px;
+      a, p {
+        margin-right: 20%;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    &__linksignup {
+      p {
+        margin: auto 10px;
+      }
+      a {
+        -webkit-text-stroke: 1px;
+        letter-spacing: 1px;
+      }
+    }
+    &__resetpw {
+      a {
+        -webkit-text-stroke: 1px;
+      }
+    }
+  }
+}
