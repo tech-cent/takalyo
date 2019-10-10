@@ -24,7 +24,7 @@
 
   &__form {
     display: grid;
-    padding-left: 45%;
+    padding-left: 400px;
     &__heading {
       -webkit-text-stroke: 7px;
       letter-spacing: 6px;
@@ -39,9 +39,9 @@
     &__resetpw, &__linksignup {
       display: flex;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
       a, p {
-        margin-right: 20%;
+        margin-right: 28%;
         width: 100%;
         text-align: center;
       }
@@ -49,10 +49,10 @@
     &__linksignup {
       p {
         margin: auto 10px;
-      }
-      a {
-        -webkit-text-stroke: 1px;
-        letter-spacing: 1px;
+        a {
+          color: #fff;
+          font-weight: bolder;
+        }
       }
     }
     &__resetpw {
@@ -62,3 +62,4 @@
     }
   }
 }
+

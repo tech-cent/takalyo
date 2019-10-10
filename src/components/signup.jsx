@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/styles';
 import InputField from './common/inputField';
+import { makeStyles } from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import '../assets/styles/signup.scss';
 import { NavLink } from 'react-router-dom';
-import '../assets/styles/login.scss';
 
 // eslint-disable-next-line no-unused-vars
 const useStyles = makeStyles(theme => ({
@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
   },
   Button: {
     borderRadius: 33,
-    marginRight: 150,
     width: 200,
     color: '#fff',
     padding: '10px 30px',
@@ -26,32 +25,27 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Login  = () => {
+const Signup = () => {
   const classes = useStyles();
-
   return (
-    <div className="container">
-      <div className="container__brief">
-        <h3>Secure<br/> Fast <br/>Reliable</h3>
+    <div className="signupcontainer">
+      <div className="signupcontainer__header">
+        <h3>Taka <span>Lyo</span></h3>
       </div>
-      <div className="container__form">
-        <div className="container__form__heading">
-          <h3>Taka <span>Lyo</span></h3>
-        </div>
+      <div className="signupcontainer__form">
+        <h3>Sign Up</h3>
+        <InputField fieldType="username"/>
         <InputField fieldType="contact"/>
         <InputField fieldType="password"/>
-        <div className="container__form__resetpw">
-          <a>Forgot Password?</a>
-        </div>
         <div className={classes.ButtonArea}>
-          <Button className={classes.Button}>Login</Button>
+          <Button className={classes.Button}>Signup</Button>
         </div>
         <div className="container__form__linksignup">
-          <p>Don't have an account?<NavLink to="/signup">Sign Up</NavLink></p>
+          <p>Have account already?<NavLink to="/login">Login</NavLink></p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

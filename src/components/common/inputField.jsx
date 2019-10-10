@@ -12,7 +12,7 @@ const InputField = ({ fieldType }) => {
         (fieldType.toLowerCase() === 'username') && (
           <div className="input-container">
             <div className="input-icon">
-              <FontAwesomeIcon icon={faUser} size="2x" />
+              <FontAwesomeIcon icon={faUser} size="sm" style={{ color: '#4A4A4A'}}/>
             </div>
             <input type="text" placeholder="Username" className="input-field"/>
           </div>
