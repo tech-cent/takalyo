@@ -23,12 +23,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SignupButton = ({form}) => {
+const SignupButton = ({form, handleSubmit}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.ButtonArea}>
-      <Button className={classes.Button}>{form}</Button>
+      <Button className={classes.Button} onClick={handleSubmit}>{form}</Button>
     </div>
   );
 };
@@ -37,4 +37,5 @@ export default SignupButton;
 
 SignupButton.propTypes = {
   form: PropTypes.string,
+  handleSubmit: PropTypes.func
 };
