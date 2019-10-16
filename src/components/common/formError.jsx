@@ -5,13 +5,12 @@ import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import '../../assets/styles/error.scss';
 
 const FormError = ({ message }) => {
-  console.log('message-typoe', typeof message);
   return (
     <div className="error-container">
       <div className="error-container__icon">
         <FontAwesomeIcon icon={faExclamationCircle} size="2x" />
       </div>
-      <p>{((typeof message === 'string') && message) || 'please check your credentials'}</p>
+      <p>{((typeof message === 'string') && (message.length <= 20) && message) || 'please check your credentials'}</p>
     </div>
   );
 };
