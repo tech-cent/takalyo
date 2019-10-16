@@ -7,6 +7,7 @@ import InputField from './common/inputField';
 import '../assets/styles/signup.scss';
 import { NavLink } from 'react-router-dom';
 import SignupButton from './common/signupButton';
+import FormError from './common/formError';
 
 const useStyles = makeStyles(theme => ({
   progressdiv: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Signup = ({ handleChange, handleSubmit, isLoading }) => {
+const Signup = ({ handleChange, handleSubmit, isLoading, error, errorMessage }) => {
   const classes = useStyles();
   return (
     <div className="signupcontainer">
@@ -31,6 +32,9 @@ const Signup = ({ handleChange, handleSubmit, isLoading }) => {
         <InputField fieldType="username" handleChange={handleChange}/>
         <InputField fieldType="contact" handleChange={handleChange}/>
         <InputField fieldType="password" handleChange={handleChange}/>
+        {
+          error && <FormError message={errorMessage}/>
+        }
         {!isLoading && <SignupButton form="signup" handleSubmit={handleSubmit}/>}
         {isLoading && (
           <div className={classes.progressdiv}>
@@ -50,5 +54,10 @@ export default Signup;
 Signup.propTypes = {
   handleChange: PropTypes.func,
   handleSubmit: PropTypes.func,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  error: PropTypes.bool,
+  errorMessage: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ])
 };

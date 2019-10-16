@@ -37,13 +37,16 @@ class SignupView extends Component {
     const data = {username, phone_number, password};
     const response = await publicPostData('/auth/signup/', signupAction, 'post', data);
     response && response.error && (
-      this.toggleState('error', this.state.error),
       this.setState({
-        errorMessage: response.error
+        errorMessage: response.error,
+        error: true
       }),
       this.toggleState('isLoading', this.state.isLoading)
     );
     response && response.data && (
+      this.setState({
+        error: false
+      }),
       this.toggleState('isLoading', this.state.isLoading),
       // eslint-disable-next-line react/prop-types
       this.props.history.push('/verify')
@@ -51,10 +54,10 @@ class SignupView extends Component {
   }
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, errorMessage, error } = this.state;
     return (
       <div className="signup">
-        <Signup handleChange={this.handleChange} handleSubmit={this.handleSubmit} isLoading={isLoading}/>
+        <Signup handleChange={this.handleChange} handleSubmit={this.handleSubmit} isLoading={isLoading} error={error} errorMessage={errorMessage}/>
       </div>
     );
   }
