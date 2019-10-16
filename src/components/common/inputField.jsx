@@ -5,7 +5,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import '../../assets/styles/input.scss';
 
-const InputField = ({ fieldType }) => {
+const InputField = ({ fieldType, handleChange }) => {
   return (
     <div className="input">
       {
@@ -14,7 +14,7 @@ const InputField = ({ fieldType }) => {
             <div className="input-icon">
               <FontAwesomeIcon icon={faUser} size="sm" style={{ color: '#4A4A4A'}}/>
             </div>
-            <input type="text" placeholder="Username" className="input-field"/>
+            <input type="text" name="username" placeholder="Username" className="input-field" onChange={handleChange} required/>
           </div>
         )
       }
@@ -24,7 +24,7 @@ const InputField = ({ fieldType }) => {
             <div className="input-icon">
               <span>+256</span>
             </div>
-            <input type="text" placeholder="Phone No." className="input-field"/>
+            <input type="text" name="phone_number" placeholder="Phone No." className="input-field" onChange={handleChange} required/>
           </div>
         )
       }
@@ -34,14 +34,14 @@ const InputField = ({ fieldType }) => {
             <div className="input-icon">
               <FontAwesomeIcon icon={faLock} size="sm" style={{ color: '#4A4A4A'}}/>
             </div>
-            <input type="password" placeholder="Password" className="input-field"/>
+            <input type="password" name="password" placeholder="Password" className="input-field" onChange={handleChange} required/>
           </div>
         )
       }
       {
         (fieldType.toLowerCase() === 'verify') && (
           <div className="verify_container">
-            <input type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
+            <input type="text" name="codeDigit" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" onChange={handleChange} required/>
           </div>
         )
       }
@@ -53,4 +53,5 @@ export default InputField;
 
 InputField.propTypes = {
   fieldType: PropTypes.string,
+  handleChange: PropTypes.func
 };
