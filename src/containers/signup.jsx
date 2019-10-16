@@ -48,6 +48,7 @@ class SignupView extends Component {
         error: false
       }),
       this.toggleState('isLoading', this.state.isLoading),
+      localStorage.setItem('phone_number', phone_number),
       // eslint-disable-next-line react/prop-types
       this.props.history.push('/verify')
     );

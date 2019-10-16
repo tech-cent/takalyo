@@ -3,9 +3,10 @@ import SignupButton from './common/signupButton';
 import InputField from './common/inputField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import FormError from './common/formError';
 
 // eslint-disable-next-line react/prop-types
-const PhoneVerification = ({success}) => {
+const PhoneVerification = ({success, handleChange, handleSubmit, error, errorMessage, isLoading}) => {
   return (
     <div className="signupcontainer">
       <div className="signupcontainer__header">
@@ -20,14 +21,17 @@ const PhoneVerification = ({success}) => {
                 <p>An sms with a 6 digit one-time password<br/>has been sent to +256-7*****</p>
               </div>
               <div className="container__form__numbers">
-                <InputField fieldType="verify" />
-                <InputField fieldType="verify" />
-                <InputField fieldType="verify" />
-                <InputField fieldType="verify" />
-                <InputField fieldType="verify" />
-                <InputField fieldType="verify" />
+                <InputField fieldType="verify" handleChange={handleChange}/>
+                <InputField fieldType="verify" handleChange={handleChange}/>
+                <InputField fieldType="verify" handleChange={handleChange}/>
+                <InputField fieldType="verify" handleChange={handleChange}/>
+                <InputField fieldType="verify" handleChange={handleChange}/>
+                <InputField fieldType="verify" handleChange={handleChange}/>
               </div>
-              <SignupButton form="verify" />
+              {
+                error && <FormError message={errorMessage}/>
+              }
+              {!isLoading && <SignupButton form="verify" handleSubmit={handleSubmit}/>}
             </div>
           )
         }
