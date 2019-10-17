@@ -4,9 +4,10 @@ import InputField from './common/inputField';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import FormError from './common/formError';
+import Spinner from './common/spinner';
 
 // eslint-disable-next-line react/prop-types
-const PhoneVerification = ({success, handleChange, handleSubmit, error, errorMessage, isLoading}) => {
+const PhoneVerification = ({success, handleChange, handleSubmit, error, errorMessage, isLoading, handleClick}) => {
   return (
     <div className="signupcontainer">
       <div className="signupcontainer__header">
@@ -32,6 +33,7 @@ const PhoneVerification = ({success, handleChange, handleSubmit, error, errorMes
                 error && <FormError message={errorMessage}/>
               }
               {!isLoading && <SignupButton form="verify" handleSubmit={handleSubmit}/>}
+              {isLoading && <Spinner/>}
             </div>
           )
         }
@@ -45,7 +47,7 @@ const PhoneVerification = ({success, handleChange, handleSubmit, error, errorMes
               <div className="container__form__icon">
                 <FontAwesomeIcon icon={faCheckCircle} size="5x" style={{ color: '#94D52A'}}/>
               </div>
-              <SignupButton form="proceed" />
+              <SignupButton form="proceed" handleSubmit={handleClick}/>
             </div>
           )
         }

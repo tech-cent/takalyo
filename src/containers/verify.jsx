@@ -13,6 +13,11 @@ class VerificationView extends Component {
     errorMessage: '',
   }
 
+  /**
+   * handles user input
+   * @param event
+   * @returns {void}
+   */
   handleChange = (event) => {
     event.preventDefault();
     const { value } = event.target;
@@ -21,11 +26,22 @@ class VerificationView extends Component {
     });
   }
 
+  /**
+   * toogles boolean value in state property
+   * @param name
+   * @param value
+   * @returns {void}
+   */
   toggleState = (name, value) => {
     this.setState({ [name]: !value });
   }
 
-
+  /**
+   * handles submission of information to server
+   * triggers the middleware function to creates the action
+   * @param event
+   * @returns {void}
+   */
   handleSubmit = async (event) => {
     this.toggleState('isLoading', this.state.isLoading);
     event.preventDefault();
