@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/styles';
 import InputField from './common/inputField';
 import { NavLink } from 'react-router-dom';
 import '../assets/styles/login.scss';
+import FormError from './common/formError';
+import Spinner from './common/spinner';
 
 // eslint-disable-next-line no-unused-vars
 const useStyles = makeStyles(theme => ({
@@ -26,7 +28,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Login  = () => {
+// eslint-disable-next-line react/prop-types
+const Login  = ({handleChange, handleSubmit, isLoading, error, errorMessage}) => {
   const classes = useStyles();
 
   return (
@@ -38,14 +41,22 @@ const Login  = () => {
         <div className="container__form__heading">
           <h3>Taka <span>Lyo</span></h3>
         </div>
-        <InputField fieldType="contact"/>
-        <InputField fieldType="password"/>
+        <InputField fieldType="contact" handleChange={handleChange}/>
+        <InputField fieldType="password" handleChange={handleChange}/>
+        {
+          error && <FormError message={errorMessage}/>
+        }
         <div className="container__form__resetpw">
           <a>Forgot Password?</a>
         </div>
-        <div className={classes.ButtonArea}>
-          <Button className={classes.Button}>Login</Button>
-        </div>
+        {
+          !isLoading && (
+            <div className={classes.ButtonArea}>
+              <Button className={classes.Button} onClick={handleSubmit}>Login</Button>
+            </div>
+          )
+        }
+        {isLoading && <Spinner/>}
         <div className="container__form__linksignup">
           <p>Don't have an account?<NavLink to="/signup">Sign Up</NavLink></p>
         </div>
