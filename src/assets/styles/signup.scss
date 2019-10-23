@@ -1,0 +1,69 @@
+.signup {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(../images/taka.png);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.signupcontainer {
+  display: grid;
+  justify-content: center;
+  padding-top: 10%;
+
+  .input-field {
+    color: #4A4A4A;
+    border: 1px solid #707070AA;
+  }
+  
+  .input-icon {
+    border: 1px solid #707070AA;
+    border-right: none;
+  }
+  
+  ::placeholder {
+    color: #4A4A4A;
+  }
+  
+  
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+      -webkit-text-fill-color: #4A4A4A !important;
+  }
+  
+
+  &__header {
+    -webkit-text-stroke: 7px;
+    letter-spacing: 6px;
+    text-align: center;
+    h3 {
+      font-size: 75px;
+      margin: 35px auto;
+    }
+    span {
+      color: #B3F548;
+    }
+  }
+
+  &__form {
+    background: #fff;
+    border-radius: 21px;
+    padding: 20px;
+    h3 {
+      color: #534F4FD6;
+      text-align: center;
+      letter-spacing: 1.5px;
+      -webkit-text-stroke: 1px;
+    }
+  }
+  .container__form__linksignup {
+    p {
+      color: #534F4FD6;
+      margin: auto 55px;
+      a {
+        color: #534F4FD6;
+      }
+    }
+  }
+}
