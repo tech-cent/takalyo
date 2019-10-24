@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -53,8 +54,8 @@ module.exports = {
   },
 
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist/'),
+    publicPath: '/dist/',
     filename: 'bundle.js'
   },
 
@@ -67,8 +68,10 @@ module.exports = {
   ],
 
   devServer: {
-    contentBase: './dist',
-    hot: true,
+    contentBase: path.join(__dirname, 'public/'),
+    port: 3000,
+    publicPath: 'http://localhost:3000/dist/',
+    hotOnly: true,
     historyApiFallback: true,
   }
 };
