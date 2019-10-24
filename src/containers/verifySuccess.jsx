@@ -13,7 +13,7 @@ export default class VerificationSuccess extends Component {
   handleClick = (event) => {
     event.preventDefault();
     const { history } = this.props;
-    history.push('/login');
+    history.push('login');
   }
 
   render() {

@@ -2,7 +2,7 @@ import axios from 'axios';
 import errorOccured  from '../actions/error';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://127.0.0.1:8000/'
+  baseURL: 'https://landreg-2019.appspot.com/'
 });
 
 

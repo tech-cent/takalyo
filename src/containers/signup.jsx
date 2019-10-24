@@ -52,7 +52,7 @@ class SignupView extends Component {
     const { publicPostData } = this.props;
     const { username, phone_number, password } = this.state;
     const data = {username, phone_number, password};
-    const response = await publicPostData('/auth/signup/', signupAction, 'post', data);
+    const response = await publicPostData('auth/signup/', signupAction, 'post', data);
     response && response.error && (
       this.setState({
         errorMessage: response.error,
