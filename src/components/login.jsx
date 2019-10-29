@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import InputField from './common/inputField';
 import { NavLink } from 'react-router-dom';
 import '../assets/styles/login.scss';
@@ -14,6 +14,11 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     padding: 10,
     margin: '10px auto',
+    marginLeft: 50,
+    [theme.breakpoints.up('xl')]: {
+      marginLeft: 0,
+      marginRight: 35,
+    },
   },
   Button: {
     borderRadius: 33,
@@ -25,6 +30,23 @@ const useStyles = makeStyles(theme => ({
     '&:hover': {
       background: '#7ec0ee'
     } 
+  },
+  SpinnerArea: {
+    display: 'flex',
+    marginLeft: 120,
+    [theme.breakpoints.up('xl')]: {
+      marginLeft: 165,
+    },
+  },
+  ErrorArea: {
+    width: '80%',
+    margin: '10px 0px',
+    [theme.breakpoints.up('xl')]: {
+      width: '60%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 12,
+    },
   }
 }));
 
@@ -43,9 +65,11 @@ const Login  = ({handleChange, handleSubmit, isLoading, error, errorMessage}) =>
         </div>
         <InputField fieldType="contact" handleChange={handleChange}/>
         <InputField fieldType="password" handleChange={handleChange}/>
-        {
-          error && <FormError message={errorMessage}/>
-        }
+        <div className={classes.ErrorArea}>
+          {
+            error && <FormError message={errorMessage}/>
+          }
+        </div>
         <div className="container__form__resetpw">
           <a>Forgot Password?</a>
         </div>
@@ -56,7 +80,9 @@ const Login  = ({handleChange, handleSubmit, isLoading, error, errorMessage}) =>
             </div>
           )
         }
-        {isLoading && <Spinner/>}
+        <div className={classes.SpinnerArea}>
+          {isLoading && <Spinner/>}
+        </div>
         <div className="container__form__linksignup">
           <p>Don't have an account?<NavLink to="/signup">Sign Up</NavLink></p>
         </div>
